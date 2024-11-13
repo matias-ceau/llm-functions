@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+
 cd "$GIT_REPOS/matias-ceau/llm-functions" || echo "no forks on this machine"
 argc link-web-search web_search_perplexity.sh
 argc list@tool > tools.txt
