@@ -4,14 +4,20 @@
 functions.json
 /bin
 /cache
-/agents/_*
-/tools/_*
-/tools/web_search.*
-/tools/code_interpreter.*
+/tools/test.*
 /.env
 __pycache__
-/.venv
+/venv
 node_modules
 /package.json
+<<<<<<< HEAD
 /package-lock.json
 *.lockautomation.sh
+=======
+<<<<<<< HEAD
+package-lock.json
+=======
+/package-lock.json
+>>>>>>> dcdf988 (refactor: error handling for run-tool/run-agent scripts (#133))
+*.lock
+>>>>>>> 8078575 (refactor: error handling for run-tool/run-agent scripts (#133))
