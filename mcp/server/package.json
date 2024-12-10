@@ -1,6 +1,10 @@
 {
   "name": "mcp-llm-functions",
+<<<<<<< HEAD
   "version": "1.2.0",
+=======
+  "version": "1.0.0",
+>>>>>>> f081b70 (feat: add mcp server)
   "description": "Let LLM-functions tools/agents be used through the Model Context Protocol",
   "license": "MIT",
   "author": "sigoden <sigoden@gmail.com>",
@@ -18,7 +22,11 @@
     "mcp-llm-functions": "index.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@modelcontextprotocol/sdk": "^1.1.0",
+=======
+    "@modelcontextprotocol/sdk": "^1.0.3",
+>>>>>>> f081b70 (feat: add mcp server)
     "uuid": "^11.0.3"
   }
 }

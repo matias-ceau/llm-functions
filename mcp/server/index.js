@@ -9,7 +9,13 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
   CallToolRequestSchema,
+<<<<<<< HEAD
   ListToolsRequestSchema,
+=======
+  ErrorCode,
+  ListToolsRequestSchema,
+  McpError,
+>>>>>>> f081b70 (feat: add mcp server)
 } from "@modelcontextprotocol/sdk/types.js";
 
 let [rootDir, agentName] = process.argv.slice(2);
@@ -31,6 +37,7 @@ try {
   console.error(`Failed to read functions at '${functionsJsonPath}'`);
   process.exit(1);
 }
+<<<<<<< HEAD
 const agentToolsOnly = process.env["AGENT_TOOLS_ONLY"] === "true" || process.env["AGENT_TOOLS_ONLY"] === "1";
 functions = functions.filter(f => {
   if (f.mcp) {
@@ -43,6 +50,8 @@ functions = functions.filter(f => {
   }
 });
 
+=======
+>>>>>>> f081b70 (feat: add mcp server)
 const env = Object.assign({}, process.env, {
   PATH: `${path.join(rootDir, "bin")}:${process.env.PATH}`
 });
@@ -72,7 +81,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const functionObj = functions.find((f) => f.name === request.params.name);
   if (!functionObj) {
+<<<<<<< HEAD
     throw new Error(`Unknown tool '${request.params.name}'`);
+=======
+    throw new McpError(ErrorCode.InvalidRequest, `Unexpected tool '${request.params.name}'`);
+>>>>>>> f081b70 (feat: add mcp server)
   }
   let command = request.params.name;
   let args = [JSON.stringify(request.params.arguments || {})];
@@ -88,18 +101,31 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       output = await fs.promises.readFile(tmpFile, "utf8");
     } catch { };
     return {
+<<<<<<< HEAD
       content: [{ type: "text", text: output }],
     };
   } else {
     return {
       isError: true,
       content: [{ type: "text", text: stderr }],
+=======
+      content: [{ type: "text", value: output }],
+    }
+  } else {
+    return {
+      isError: true,
+      error: stderr,
+>>>>>>> f081b70 (feat: add mcp server)
     };
   }
 });
 
 function runCommand(command, args, env) {
+<<<<<<< HEAD
   return new Promise(resolve => {
+=======
+  return new Promise((resolve, reject) => {
+>>>>>>> f081b70 (feat: add mcp server)
     const child = spawn(command, args, {
       stdio: ['ignore', 'ignore', 'pipe'],
       env,
@@ -116,7 +142,11 @@ function runCommand(command, args, env) {
     });
 
     child.on('error', (err) => {
+<<<<<<< HEAD
       resolve({ exitCode: 1, stderr: `Command execution failed: ${err.message}` });
+=======
+      reject(err);
+>>>>>>> f081b70 (feat: add mcp server)
     });
   });
 }
@@ -124,6 +154,10 @@ function runCommand(command, args, env) {
 async function runServer() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
+<<<<<<< HEAD
+=======
+  console.error("LLM-Functions MCP Server running on stdio");
+>>>>>>> f081b70 (feat: add mcp server)
 }
 
 runServer().catch(console.error);
