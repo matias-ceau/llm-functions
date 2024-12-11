@@ -163,7 +163,11 @@ build-declarations@tool() {
             build_failed_tools+=("$name")
         }
         if [[ "$json_data" == "null" ]]; then
+<<<<<<< HEAD
             _die "error: failed to build declarations for tool $name"
+=======
+            _die "error: failed to build declartions for tool $name"
+>>>>>>> 00e1046 (fix: build js declarations (#141))
         fi
         json_list+=("$json_data")
     done
