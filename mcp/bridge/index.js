@@ -29,9 +29,14 @@ try {
 async function startMcpServer(id, serverConfig) {
   console.log(`Starting ${id} server...`);
   const capabilities = { tools: {} };
+<<<<<<< HEAD
   const { prefix = true, ...rest } = serverConfig;
   const transport = new StdioClientTransport({
     ...rest,
+=======
+  const transport = new StdioClientTransport({
+    ...serverConfig,
+>>>>>>> eda0a72 (feat: support MCP bridge (#140))
   });
   const client = new Client(
     { name: id, version: "1.0.0" },
@@ -43,10 +48,16 @@ async function startMcpServer(id, serverConfig) {
     ({ name, description, inputSchema }) =>
     ({
       spec: {
+<<<<<<< HEAD
         name: `${formatToolName(id, name, prefix)}`,
         description,
         parameters: inputSchema,
         mcp: id,
+=======
+        name: `${normalizeToolName(`${id}_${name}`)}`,
+        description,
+        parameters: inputSchema,
+>>>>>>> eda0a72 (feat: support MCP bridge (#140))
       },
       impl: async args => {
         const res = await client.callTool({
@@ -183,8 +194,12 @@ function arrayify(a) {
   return r
 }
 
+<<<<<<< HEAD
 function formatToolName(serverName, toolName, prefix) {
   const name = prefix ? `${serverName}_${toolName}` : toolName;
+=======
+function normalizeToolName(name) {
+>>>>>>> eda0a72 (feat: support MCP bridge (#140))
   return name.toLowerCase().replace(/-/g, "_");
 }
 
