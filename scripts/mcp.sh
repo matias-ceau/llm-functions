@@ -41,8 +41,7 @@ start() {
     nohup node  "$index_js" "$llm_functions_dir" > "$MCP_DIR/mcp-bridge.log" 2>&1 &
     wait-for-server
     echo "Merge MCP tools into functions.json"
-    merge-functions > "$MCP_DIR/functions.json"
-    cp -f "$MCP_DIR/functions.json" "$FUNCTIONS_JSON_PATH"
+    "$0" merge-functions -S
     build-bin
 }
 
@@ -58,6 +57,7 @@ stop() {
         fi
     fi
 <<<<<<< HEAD
+<<<<<<< HEAD
     "$0" recovery-functions -S
 }
 
@@ -71,12 +71,15 @@ run@tool() {
     mkdir -p "$MCP_DIR"
     unmerge-functions > "$MCP_DIR/functions.original.json"
     cp -f "$MCP_DIR/functions.original.json" "$FUNCTIONS_JSON_PATH"
+=======
+    "$0" recovery-functions -S
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
 }
 
-# @cmd Call mcp tool
+# @cmd Run the tool
 # @arg tool![`_choice_tool`] The tool name
 # @arg json The json data
-call() {
+run@tool() {
     if [[ -z "$argc_json" ]]; then
         declaration="$(build-declarations | jq --arg tool "$argc_tool" -r '.[] | select(.name == $tool)')"
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
@@ -127,6 +130,7 @@ build-bin() {
 
 # @cmd Merge mcp tools into functions.json
 <<<<<<< HEAD
+<<<<<<< HEAD
 # @flag -S --save Save to functions.json
 merge-functions() {
     result="$(jq --argjson json1 "$("$0" recovery-functions)" --argjson json2 "$(generate-declarations)" -n '($json1 + $json2)')"
@@ -141,24 +145,41 @@ merge-functions() {
 # @flag -S --save Save to functions.json
 recovery-functions() {
 =======
+=======
+# @flag -S --save Save to functions.json
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
 merge-functions() {
-    jq --argjson json1 "$(unmerge-functions)" --argjson json2 "$(build-declarations)" -n '($json1 + $json2)'
+    result="$(jq --argjson json1 "$("$0" recovery-functions)" --argjson json2 "$(build-declarations)" -n '($json1 + $json2)')"
+    if [[ -n "$argc_save" ]]; then
+        printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
+    else
+        printf "%s" "$result"
+    fi
 }
 
 # @cmd Unmerge mcp tools from functions.json
+<<<<<<< HEAD
 unmerge-functions() {
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @flag -S --save Save to functions.json
+recovery-functions() {
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
     functions="[]"
     if [[ -f  "$FUNCTIONS_JSON_PATH" ]]; then
         functions="$(cat "$FUNCTIONS_JSON_PATH")"
     fi
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
     result="$(printf "%s" "$functions" | jq 'map(select(has("mcp") | not))')"
     if [[ -n "$argc_save" ]]; then
         printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
     else
         printf "%s" "$result"
     fi
+<<<<<<< HEAD
 }
 
 # @cmd Generate function declarations for the mcp tools
@@ -169,6 +190,8 @@ generate-declarations() {
 # @cmd Wait for the mcp bridge server to ready
 =======
     printf "%s" "$functions" | jq 'map(select(has("mcp") | not))'
+=======
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
 }
 
 # @cmd Build tools to bin

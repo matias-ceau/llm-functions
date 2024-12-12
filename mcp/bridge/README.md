@@ -1,6 +1,7 @@
 # MCP-Bridge
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Let external MCP tools be used by LLM-Functions.
 
 ## Get Started
@@ -8,6 +9,9 @@ Let external MCP tools be used by LLM-Functions.
 ### 1. Create a `mpc.json` at `<llm-functions-dir>`.
 =======
 Let MCP tools be used by LLM functions.
+=======
+Let external MCP tools be used by LLM-Functions.
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
 
 ## Get Started
 
@@ -68,9 +72,14 @@ argc mcp start
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > Run `argc mcp stop` to stop the bridge server, recover functions.json.
 
 > Run `argc mcp logs` to check the server's logs.
 =======
 > Run `argc mcp stop` to stop the bridge server, recover functions.json
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+> Run `argc mcp stop` to stop the bridge server, recover functions.json
+> Run `argc mcp logs` to check the server's logs.
+>>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
