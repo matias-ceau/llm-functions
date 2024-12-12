@@ -38,6 +38,9 @@ try {
   process.exit(1);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ecf6af4 (feat(mcp-server): support env var `AGENT_TOOLS_ONLY` (#145))
 const agentToolsOnly = process.env["AGENT_TOOLS_ONLY"] === "true" || process.env["AGENT_TOOLS_ONLY"] === "1";
 functions = functions.filter(f => {
   if (f.mcp) {
@@ -50,8 +53,11 @@ functions = functions.filter(f => {
   }
 });
 
+<<<<<<< HEAD
 =======
 >>>>>>> f081b70 (feat: add mcp server)
+=======
+>>>>>>> ecf6af4 (feat(mcp-server): support env var `AGENT_TOOLS_ONLY` (#145))
 const env = Object.assign({}, process.env, {
   PATH: `${path.join(rootDir, "bin")}:${process.env.PATH}`
 });
@@ -155,9 +161,12 @@ async function runServer() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   console.error("LLM-Functions MCP Server running on stdio");
 >>>>>>> f081b70 (feat: add mcp server)
+=======
+>>>>>>> ecf6af4 (feat(mcp-server): support env var `AGENT_TOOLS_ONLY` (#145))
 }
 
 runServer().catch(console.error);
