@@ -51,6 +51,9 @@ load_env() {
 
 run() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 718be2a (fix: git bash on windows backslashs bug (#142))
     if [[ -z "$tool_data" ]]; then
         die "error: no JSON data"
     fi
@@ -60,6 +63,7 @@ run() {
         tool_data="$(echo "$tool_data" | sed 's/\\/\\\\/g')"
     fi
 
+<<<<<<< HEAD
     if [[ -z "$LLM_OUTPUT" ]]; then
         is_temp_llm_output=1
         export LLM_OUTPUT="$(mktemp)"
@@ -84,6 +88,8 @@ run() {
     fi
 
 =======
+=======
+>>>>>>> 718be2a (fix: git bash on windows backslashs bug (#142))
     no_llm_output=0
     if [[ -z "$LLM_OUTPUT" ]]; then
         no_llm_output=1
