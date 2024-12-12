@@ -30,6 +30,7 @@ async function startMcpServer(id, serverConfig) {
   console.log(`Starting ${id} server...`);
   const capabilities = { tools: {} };
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { prefix = true, ...rest } = serverConfig;
   const transport = new StdioClientTransport({
     ...rest,
@@ -37,6 +38,11 @@ async function startMcpServer(id, serverConfig) {
   const transport = new StdioClientTransport({
     ...serverConfig,
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+  const { prefix = true, ...rest } = serverConfig;
+  const transport = new StdioClientTransport({
+    ...rest,
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
   });
   const client = new Client(
     { name: id, version: "1.0.0" },
@@ -49,12 +55,16 @@ async function startMcpServer(id, serverConfig) {
     ({
       spec: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         name: `${formatToolName(id, name, prefix)}`,
         description,
         parameters: inputSchema,
         mcp: id,
 =======
         name: `${normalizeToolName(`${id}_${name}`)}`,
+=======
+        name: `${formatToolName(id, name, prefix)}`,
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
         description,
         parameters: inputSchema,
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
@@ -195,11 +205,16 @@ function arrayify(a) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function formatToolName(serverName, toolName, prefix) {
   const name = prefix ? `${serverName}_${toolName}` : toolName;
 =======
 function normalizeToolName(name) {
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+function formatToolName(serverName, toolName, prefix) {
+  const name = prefix ? `${serverName}_${toolName}` : toolName;
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
   return name.toLowerCase().replace(/-/g, "_");
 }
 

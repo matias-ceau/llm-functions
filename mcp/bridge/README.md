@@ -7,6 +7,7 @@ Let external MCP tools be used by LLM-Functions.
 ## Get Started
 
 ### 1. Create a `mpc.json` at `<llm-functions-dir>`.
+<<<<<<< HEAD
 =======
 Let MCP tools be used by LLM functions.
 =======
@@ -17,6 +18,8 @@ Let external MCP tools be used by LLM-Functions.
 
 1. Create a `mpc.json` at `<llm-functions-dir>`.
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
 
 ```json
 {
@@ -30,6 +33,9 @@ Let external MCP tools be used by LLM-Functions.
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
     "git": {
       "command": "uvx",
       "args": [
@@ -39,8 +45,11 @@ Let external MCP tools be used by LLM-Functions.
       ],
       "prefix": false
     },
+<<<<<<< HEAD
 =======
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
     "github": {
       "command": "npx",
       "args": [
@@ -56,6 +65,7 @@ Let external MCP tools be used by LLM-Functions.
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > MCP-Bridge will launch the server and register all the tools listed by the server. 
 
 > To avoid name clashes, The server automatically prefix tool names with `<server>_`. You can disable this behavior by add `prefix: false` to server configuration.
@@ -66,6 +76,13 @@ Let external MCP tools be used by LLM-Functions.
 
 2. Run the bridge server, build mcp tool binaries, update functions.json, all with:
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+> MCP-Bridge will launch the server and register all the tools listed by the server. 
+
+> To avoid name clashes, The server automatically prefix tool names with `<server>_`. You can disable this behavior by add `prefix: false` to server configuration.
+
+### 2. Run the bridge server, build mcp tool binaries, update functions.json, all with:
+>>>>>>> 9f8528d (feat(mcp): add `prefix` filed to  bridge server configuraiton (#148))
 
 ```
 argc mcp start
