@@ -164,10 +164,14 @@ build-declarations@tool() {
         }
         if [[ "$json_data" == "null" ]]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
             _die "error: failed to build declarations for tool $name"
 =======
             _die "error: failed to build declartions for tool $name"
 >>>>>>> 00e1046 (fix: build js declarations (#141))
+=======
+            _die "error: failed to build declarations for tool $name"
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
         fi
         json_list+=("$json_data")
     done

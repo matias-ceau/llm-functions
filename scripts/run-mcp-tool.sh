@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Usage: ./run-mcp-tool.sh <tool-name> <tool-data>
 
 =======
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+
+# Usage: ./run-mcp-tool.sh <tool-name> <tool-data>
+
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
 set -e
 
 main() {
@@ -64,6 +70,7 @@ run() {
     fi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if [[ -z "$LLM_OUTPUT" ]]; then
         is_temp_llm_output=1
         export LLM_OUTPUT="$(mktemp)"
@@ -91,8 +98,10 @@ run() {
 =======
 >>>>>>> 718be2a (fix: git bash on windows backslashs bug (#142))
     no_llm_output=0
+=======
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
     if [[ -z "$LLM_OUTPUT" ]]; then
-        no_llm_output=1
+        is_temp_llm_output=1
         export LLM_OUTPUT="$(mktemp)"
     fi
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
@@ -101,6 +110,7 @@ run() {
         -H 'content-type: application/json' \
         -d "$tool_data" > "$LLM_OUTPUT"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if [[ "$is_temp_llm_output" -eq 1 ]]; then
         cat "$LLM_OUTPUT"
@@ -112,10 +122,17 @@ run() {
     else
         dump_result
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+    if [[ "$is_temp_llm_output" -eq 1 ]]; then
+        cat "$LLM_OUTPUT"
+    else
+        dump_result "$tool_name" 
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
     fi
 }
 
 dump_result() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     if [[ "$LLM_OUTPUT" == "/dev/stdout" ]] || [[ -z "$LLM_DUMP_RESULTS" ]] ||  [[ ! -t 1 ]]; then
         return;
@@ -146,14 +163,25 @@ dump_result() {
     fi
     cat <<EOF
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+    if [[ "$LLM_OUTPUT" == "/dev/stdout" ]] || [[ -z "$LLM_DUMP_RESULTS" ]] ||  [[ ! -t 1 ]]; then
+        return;
+    fi
+    if grep -q -w -E "$LLM_DUMP_RESULTS" <<<"$1"; then
+            cat <<EOF
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
 $(echo -e "\e[2m")----------------------
 $(cat "$LLM_OUTPUT")
 ----------------------$(echo -e "\e[0m")
 EOF
 <<<<<<< HEAD
+<<<<<<< HEAD
     fi
 =======
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+    fi
+>>>>>>> e4d0347 (feat: support env var `LLM_DUMP_RESULTS` (#144))
 }
 
 main "$@"
