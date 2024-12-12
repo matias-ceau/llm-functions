@@ -73,6 +73,7 @@ argc mcp start
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > Run `argc mcp stop` to stop the bridge server, recover functions.json.
 
 > Run `argc mcp logs` to check the server's logs.
@@ -83,3 +84,8 @@ argc mcp start
 > Run `argc mcp stop` to stop the bridge server, recover functions.json
 > Run `argc mcp logs` to check the server's logs.
 >>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
+=======
+> Run `argc mcp stop` to stop the bridge server, recover functions.json.
+
+> Run `argc mcp logs` to check the server's logs.
+>>>>>>> e85f8dd (chore: update mcp docs (#147))

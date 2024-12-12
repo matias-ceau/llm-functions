@@ -187,12 +187,17 @@ Refer to [./agents/demo](https://github.com/sigoden/llm-functions/tree/main/agen
 ## MCP (Model Context Protocol)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [mcp/server](https://github.com/sigoden/llm-functions/tree/main/mcp/server): Let LLM-Functions tools/agents be used through the Model Context Protocol. 
 - [mcp/bridge](https://github.com/sigoden/llm-functions/tree/main/mcp/bridge): Let external MCP tools be used by LLM-Functions.
 =======
 - [mcp/server](./mcp/server/): Let LLM-Functions tools/agents be used through the Model Context Protocol. 
 - [mcp/bridge](./mcp/bridge/): Let external MCP tools be used by LLM-Functions.
 >>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
+=======
+- [mcp/server](https://github.com/sigoden/llm-functions/tree/main/mcp/server): Let LLM-Functions tools/agents be used through the Model Context Protocol. 
+- [mcp/bridge](https://github.com/sigoden/llm-functions/tree/main/mcp/bridge): Let external MCP tools be used by LLM-Functions.
+>>>>>>> e85f8dd (chore: update mcp docs (#147))
 
 ## Documents
 
