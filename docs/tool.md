@@ -2,10 +2,17 @@
 
 This document guides you on creating custom tools for the LLM Functions framework in Bash, JavaScript, and Python.
 
+<<<<<<< HEAD
 ## Defining Tool Parameters
 
 To define the parameters that your tool accepts, you will use specially formatted comments within your tool's source code.
 The `Argcfile.sh` script utilizes these comments to automatically generate the function declarations needed by the LLM.
+=======
+## Definition via Comments
+
+The key to defining the parameters your tool accepts is through specially formatted comments within your tool's source code.
+The `Argcfile.sh` uses these comments to automatically generate the function declaration used by the LLM.
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 
 ### Json Schema
 
@@ -92,7 +99,11 @@ Use `# @describe`, `# @option`, and `# @flag` comments to define your tool's par
 
 **Example ([tools/demo_sh.sh](https://github.com/sigoden/llm-functions/blob/main/tools/demo_sh.sh)):**
 
+<<<<<<< HEAD
 ```sh file=tools/demo_sh.sh
+=======
+```bash
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 #!/usr/bin/env bash
 set -e
 
@@ -129,7 +140,11 @@ Use JSDoc-style comments to define your tool's parameters. The `@typedef` block 
 
 **Example ([tools/demo_js.js](https://github.com/sigoden/llm-functions/blob/main/tools/demo_js.js)):**
 
+<<<<<<< HEAD
 ```js file=tools/demo_js.js
+=======
+```javascript
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 /**
  * Demonstrate how to create a tool using Javascript and how to use comments.
  * @typedef {Object} Args
@@ -168,7 +183,11 @@ Use type hints and docstrings to define your tool's parameters.
 
 **Example ([tools/demo_py.py](https://github.com/sigoden/llm-functions/blob/main/tools/demo_py.py)):**
 
+<<<<<<< HEAD
 ```py file=tools/demo_py.py
+=======
+```python
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 def run(
     string: str,
     string_enum: Literal["foo", "bar"],
@@ -192,6 +211,7 @@ def run(
     """
     # ... your Python code ...
 ```
+<<<<<<< HEAD
 ## Common tools
 
 Common tools can be found in `tools/<tool-name>.{sh,js,py}`. Each script defines a single tool.
@@ -326,3 +346,41 @@ tools.py:
     num_skips (default: 1): Number of tracks to skip
 EOF
 ```
+=======
+
+## Quickly create tools
+
+`Argcfile.sh` provides a tool to quickly create script tools.
+
+```
+$ argc create@tool --help
+Create a boilplate tool script
+
+Examples:
+  ./scripts/create-tool.sh _test.py foo bar! baz+ qux*
+
+USAGE: create-tool [OPTIONS] <NAME> [PARAMS]...
+
+ARGS:
+  <NAME>       The script file name.
+  [PARAMS]...  The script parameters
+
+OPTIONS:
+      --description <TEXT>  The tool description
+      --force               Override the exist tool file
+  -h, --help                Print help
+  -V, --version             Print version
+```
+
+```sh
+argc create@tool foo bar! baz+ qux*
+```
+
+The suffixes after property names represent different meanings.
+
+- `!`: The property is required.
+- `*`: The property value must be an array.
+- `+`: The property is required, and its value must be an array.
+- no suffix: The property is optional.
+
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))

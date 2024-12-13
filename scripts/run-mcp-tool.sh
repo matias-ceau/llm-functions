@@ -90,10 +90,14 @@ run() {
         read -r -p "Are you sure you want to continue? [Y/n] " ans
         if [[ "$ans" == "N" || "$ans" == "n" ]]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
             echo "error: canceled!" 2>&1
 =======
             echo "error: canceld!" 2>&1
 >>>>>>> 991c889 (feat(mcp): add LLM_MCP_NEED_CONFIRM and LLM_MCP_SKIP_CONFIRM (#149))
+=======
+            echo "error: canceled!" 2>&1
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
             exit 1
         fi
     fi

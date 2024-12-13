@@ -9,11 +9,16 @@ FUNCTIONS_JSON_PATH="$ROOT_DIR/functions.json"
 MCP_BRIDGE_PORT="${MCP_BRIDGE_PORT:-8808}"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # @cmd Start/restart the mcp bridge server
 # @alias restart
 =======
 # @cmd Start/Restart mcp bridge server
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @cmd Start/restart the mcp bridge server
+# @alias restart
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 start() {
     if [[ ! -f "$MCP_JSON_PATH" ]]; then
         _die "error: not found mcp.json"
@@ -45,8 +50,12 @@ start() {
     build-bin
 }
 
+<<<<<<< HEAD
 # @cmd Stop mcp bridge server
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @cmd Stop the mcp bridge server
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 stop() {
     pid="$(get-server-pid)"
     if [[ -n "$pid" ]]; then
@@ -62,6 +71,7 @@ stop() {
 }
 
 # @cmd Run the mcp tool
+<<<<<<< HEAD
 # @arg tool![`_choice_tool`] The tool name
 # @arg json The json data
 run@tool() {
@@ -77,12 +87,18 @@ run@tool() {
 }
 
 # @cmd Run the tool
+=======
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 # @arg tool![`_choice_tool`] The tool name
 # @arg json The json data
 run@tool() {
     if [[ -z "$argc_json" ]]; then
+<<<<<<< HEAD
         declaration="$(build-declarations | jq --arg tool "$argc_tool" -r '.[] | select(.name == $tool)')"
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+        declaration="$(generate-declarations | jq --arg tool "$argc_tool" -r '.[] | select(.name == $tool)')"
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
         if [[ -n "$declaration" ]]; then
             _ask_json_data "$declaration"
         fi
@@ -94,10 +110,14 @@ run@tool() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # @cmd Show the logs
 =======
 # @cmd Show logs
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @cmd Show the logs
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 # @flag -f --follow Follow mode
 logs() {
     args=""
@@ -112,10 +132,14 @@ logs() {
 # @cmd Build tools to bin
 build-bin() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     tools=( $(generate-declarations | jq -r '.[].name') )
 =======
     tools=( $(build-declarations | jq -r '.[].name') )
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+    tools=( $(generate-declarations | jq -r '.[].name') )
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
     for tool in "${tools[@]}"; do
         if _is_win; then
             bin_file="$BIN_DIR/$tool.cmd"
@@ -194,13 +218,17 @@ generate-declarations() {
 >>>>>>> 218ad47 (refactor(mcp): improve docs and script (#146))
 }
 
-# @cmd Build tools to bin
-build-declarations() {
+# @cmd Generate function declarations for the mcp tools
+generate-declarations() {
     curl -sS http://localhost:$MCP_BRIDGE_PORT/tools | jq '.[] |= . + {mcp: true}'
 }
 
+<<<<<<< HEAD
 # @cmd Wait for mcp bridge server to ready
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @cmd Wait for the mcp bridge server to ready
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 wait-for-server() {
     while true; do
         if [[ "$(curl -fsS http://localhost:$MCP_BRIDGE_PORT/health 2>&1)" == "OK" ]]; then
@@ -211,10 +239,14 @@ wait-for-server() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # @cmd Get the server pid
 =======
 # @cmd
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+# @cmd Get the server pid
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 get-server-pid() {
     curl -fsSL http://localhost:$MCP_BRIDGE_PORT/pid 2>/dev/null || true
 }
@@ -262,10 +294,14 @@ _is_win() {
 
 _choice_tool() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     generate-declarations | jq -r '.[].name'
 =======
     build-declarations | jq -r '.[].name'
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+    generate-declarations | jq -r '.[].name'
+>>>>>>> e0d7a9e (refactor: add docs and update scripts (#150))
 }
 
 _die() {
