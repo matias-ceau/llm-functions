@@ -60,6 +60,7 @@ async function startMcpServer(id, serverConfig) {
         description,
         parameters: inputSchema,
         mcp: id,
+<<<<<<< HEAD
 =======
         name: `${normalizeToolName(`${id}_${name}`)}`,
 =======
@@ -68,6 +69,8 @@ async function startMcpServer(id, serverConfig) {
         description,
         parameters: inputSchema,
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+>>>>>>> ebae50f (refactor(mcp): change `mcp: <name>` for mcp tool declarations (#151))
       },
       impl: async args => {
         const res = await client.callTool({
