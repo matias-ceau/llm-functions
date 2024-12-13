@@ -89,11 +89,16 @@ run() {
     if [[ -t 1 ]] && [[ "$skip_confirm" -ne 1 ]]; then
         read -r -p "Are you sure you want to continue? [Y/n] " ans
         if [[ "$ans" == "N" || "$ans" == "n" ]]; then
+<<<<<<< HEAD
             echo "error: canceled!" 2>&1
+=======
+            echo "error: canceld!" 2>&1
+>>>>>>> 991c889 (feat(mcp): add LLM_MCP_NEED_CONFIRM and LLM_MCP_SKIP_CONFIRM (#149))
             exit 1
         fi
     fi
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 718be2a (fix: git bash on windows backslashs bug (#142))
@@ -105,6 +110,8 @@ run() {
         export LLM_OUTPUT="$(mktemp)"
     fi
 >>>>>>> eda0a72 (feat: support MCP bridge (#140))
+=======
+>>>>>>> 991c889 (feat(mcp): add LLM_MCP_NEED_CONFIRM and LLM_MCP_SKIP_CONFIRM (#149))
     curl -sS "http://localhost:${MCP_BRIDGE_PORT:-8808}/tools/$tool_name" \
         -X POST \
         -H 'content-type: application/json' \
