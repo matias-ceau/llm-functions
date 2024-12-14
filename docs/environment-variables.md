@@ -48,6 +48,7 @@
 | `LLM_DUMP_RESULTS`     | Controls whether to print the execution results of the tool, e.g. `get_current_weather\|fs.*\|todo:.*`, `.*` |
 | `LLM_MCP_NEED_CONFIRM`| Controls whether to prompt for confirmation before executing certain tools, e.g., `git_commit\|git_reset`, `.*` . |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `LLM_MCP_SKIP_CONFIRM`| Controls whether to bypass confirmation requests for certain tools, e.g., `git_status\|git_diff.*`, `.*` . |
 
 > LLM-Functions supports `.env`, just put environment variables into dotenv file to make it work.
@@ -63,3 +64,8 @@
 =======
 | `LLM_MCP_SKIP_CONFIRM`| Controls whether to bypass confirmation requests for certain tools, e.g., `git_status\|git_diff.*`, `.*` . |
 >>>>>>> 991c889 (feat(mcp): add LLM_MCP_NEED_CONFIRM and LLM_MCP_SKIP_CONFIRM (#149))
+=======
+| `LLM_MCP_SKIP_CONFIRM`| Controls whether to bypass confirmation requests for certain tools, e.g., `git_status\|git_diff.*`, `.*` . |
+
+> LLM-Functions supports `.env`, just put environment variables into dotenv file to make it work.
+>>>>>>> eec51e1 (chore: update docs)
