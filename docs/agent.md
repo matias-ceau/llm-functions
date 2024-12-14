@@ -51,9 +51,13 @@ variables:
     default: val
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 > For sensitive information such as api_key, client_id, client_secret, and token, it's recommended to use environment variables instead of agent variables.
 =======
 >>>>>>> f7f3b5d (refactor: add docs (#143))
+=======
+> For sensitive information such as api_key, client_id, client_secret, and token, it's recommended to use environment variables instead of agent variables.
+>>>>>>> d8958d1 (chore: improve docs)
 
 When use define variables, please avoid these built-in variables:
 
@@ -95,11 +99,16 @@ documents:
 ### conversation_starters
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Define Predefined prompts or questions that users can ask to initiate interactions or conversations with the agent.
 This helps provide guidance for users on how to engage with the agent effectively.
 =======
 Predefined prompts or questions that the agent can use to initiate interactions or conversations.
 >>>>>>> f7f3b5d (refactor: add docs (#143))
+=======
+Define Predefined prompts or questions that users can ask to initiate interactions or conversations with the agent.
+This helps provide guidance for users on how to engage with the agent effectively.
+>>>>>>> d8958d1 (chore: improve docs)
 
  ```yaml
  conversation_starters:
