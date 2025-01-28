@@ -15,8 +15,6 @@ node_modules
 /package.json
 package-lock.json
 *.lock
-<<<<<<< HEAD
 *.lockautomation.sh
-=======
 /mcp.json
->>>>>>> 20d1ec4 (feat: support MCP bridge (#140))
+
